@@ -90,6 +90,12 @@ bool eServiceEvent::loadLanguage(Event *evt, std::string lang, int tsidonid)
 				{
 					m_event_name = convertDVBUTF8(replace_all(replace_all(sed->getEventName(), "\n", " "), "\t", " "), table, tsidonid);
 					m_short_description = convertDVBUTF8(sed->getText(), table, tsidonid);
+//BlackHole
+					int mypos;
+					mypos = m_event_name.find("Visibile");
+					if(mypos!=std::string::npos)
+						m_event_name=m_short_description;
+//End					
 					retval=1;
 				}
 				break;
